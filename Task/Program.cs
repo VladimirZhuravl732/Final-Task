@@ -18,16 +18,27 @@ void PrintArray(int[] Array)
     }
 }
 
-
-int[] CreateEvenArr(int[] Array)
+int GetCountEvenNumbers(int[] Array)
 {
     int count = 0;
-    int[] EvenArray= new int[Array.Length];
     for (int i = 0; i < Array.Length; i++)
     {
-        if (Array[i] % 2 == 0) 
-        EvenArray[count] = Array[i];
-        count++;
+        if (Array[i] % 2 == 0) count++;
+    }
+    return count;
+}
+
+int[] CreateEvenArr(int[] Array, int Length)
+{
+    int index = 0;
+    int[] EvenArray = new int[Length];
+    for (int i = 0; i < Array.Length; i++)
+    {
+        if (Array[i] % 2 == 0)
+        {
+            EvenArray[index] = Array[i];
+            index++;
+        }
     }
     return EvenArray;
 }
@@ -35,7 +46,9 @@ int[] CreateEvenArr(int[] Array)
 int[] Arr = CreateArray(10, -10, 15);
 PrintArray(Arr);
 System.Console.WriteLine();
-int [] EvenArr = CreateEvenArr(Arr);
+int size = GetCountEvenNumbers(Arr);
+System.Console.WriteLine();
+int[] EvenArr = CreateEvenArr(Arr, size);
 PrintArray(EvenArr);
 
 
