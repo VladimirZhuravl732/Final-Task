@@ -14,11 +14,28 @@ void PrintArray(int[] Array)
 {
     for (int i = 0; i < Array.Length; i++)
     {
-        System.Console.WriteLine(Array[i]);
+        System.Console.Write(Array[i] + " ");
     }
 }
 
-int[] Arr = CreateArray(5, -10, 15);
+
+int[] CreateEvenArr(int[] Array)
+{
+    int count = 0;
+    int[] EvenArray= new int[Array.Length];
+    for (int i = 0; i < Array.Length; i++)
+    {
+        if (Array[i] % 2 == 0) 
+        EvenArray[count] = Array[i];
+        count++;
+    }
+    return EvenArray;
+}
+
+int[] Arr = CreateArray(10, -10, 15);
 PrintArray(Arr);
+System.Console.WriteLine();
+int [] EvenArr = CreateEvenArr(Arr);
+PrintArray(EvenArr);
 
 
